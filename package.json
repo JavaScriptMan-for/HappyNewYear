@@ -1,0 +1,23 @@
+{
+  "name": "happy-new-year",
+  "version": "1.0.0",
+  "description": "Happy New Year",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "client": "npm run dev --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "Ivan",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "gh-pages": "^6.3.0",
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.9"
+  }
+}
