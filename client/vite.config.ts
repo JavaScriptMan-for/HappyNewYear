@@ -16,6 +16,6 @@ export default defineConfig({
       },
     },
   },
-
+  base: '/happy-new-year-puce.vercel.app/'
   
 });
