@@ -6,9 +6,9 @@ const Snow: FC = () => {
         const snowContainer: HTMLDivElement | null = document.querySelector('.snow-container');
         const numSnowflakes: number = 80; 
         const snowflakeImages: string[] = [
-            `${import.meta.env.BASE_URL}/img/snow.png`,
-            `${import.meta.env.BASE_URL}/img/snow2.png`, 
-            `${import.meta.env.BASE_URL}/img/snow3.png`
+            `/img/snow.png`,
+            `/img/snow2.png`, 
+            `/img/snow3.png`
         ];
         if (snowContainer) {
             for (let i = 0; i < numSnowflakes; i++) {

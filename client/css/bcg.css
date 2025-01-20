@@ -21,7 +21,7 @@ body {
     position: absolute;
     width: 5px; 
     height: 5px;
-    background-image: url('../assets/snow.png');
+    background-image: url('/snow.png');
     background-size: contain; 
     background-repeat: no-repeat; 
     opacity: 0.7; 
