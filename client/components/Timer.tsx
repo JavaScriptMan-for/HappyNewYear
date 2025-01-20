@@ -15,6 +15,7 @@ const Timer: FC = () => {
   const [minutesStr, setMinutesStr] = useState("минут");
   const [secondsStr, setSecondsStr] = useState("секунд");
 
+
   const calculateTimeLeft = (): void => {
     const now = new Date();
     const nextYear = new Date(now.getFullYear() + 1, 0, 1);
