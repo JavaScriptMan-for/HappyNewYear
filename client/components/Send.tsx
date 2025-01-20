@@ -14,7 +14,7 @@ const Send:FC = ()=> {
       setOk(0);
       setStatus('Отправка...');
       try {
-        await axios.post('/api/send', { to, name, message });
+        await axios.post('http://localhost:5000/api/send', { to, name, message });
         setStatus('Сообщение отправлено!');
         setOk(1)
         setTo('');

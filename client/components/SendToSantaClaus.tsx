@@ -16,7 +16,7 @@ const SendSantaClaus:FC = ()=> {
         setOk(0);
         setStatus('Отправка...');
         try {
-            await axios.post('/api/to-santa/', {name, message});
+            await axios.post('http://localhost:5000/api/to-santa/', {name, message});
             setStatus('Письмо отправлено!');
             setOk(1);
             setName('');
