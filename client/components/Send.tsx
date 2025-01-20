@@ -14,7 +14,7 @@ const Send:FC = ()=> {
       setOk(0);
       setStatus('Отправка...');
       try {
-        await axios.post('http://localhost:4000/api/send', { to, name, message });
+        await axios.post('https://happynewyear-1.onrender.com/api/send', { to, name, message });
         setStatus('Сообщение отправлено!');
         setOk(1)
         setTo('');
