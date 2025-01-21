@@ -33,7 +33,7 @@ const SendSantaClaus:FC = ()=> {
             <label htmlFor="_name">
                 <span>Твоё имя:</span> <br />
                 <input
-                id="_name"
+                 id="name"
                  name="name"
                  type="text" 
                  value={name}

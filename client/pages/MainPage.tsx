@@ -4,6 +4,7 @@ import Header from "../components/Header"
 import Snow from "../components/Snow"
 import "../css/App.css";
 
+
 const MainPage:FC = ()=> {
     return (
         <>

@@ -31,11 +31,11 @@ const Send:FC = ()=> {
    <form onSubmit={handleSubmit}>
       <label>
         <span>Email получателя:</span> <br />
-        <input placeholder="Напиши email того, кого хочешь поздравить..." id="email" type="email" value={to} onChange={e => setTo(e.target.value)} required/>
+        <input  placeholder="Напиши email того, кого хочешь поздравить..." id="email" type="email" value={to} onChange={e => setTo(e.target.value)} required/>
       </label>
       <label>
         <span>Имя получателя:</span> <br />
-        <input placeholder="Напиши имя в родительном падеже..." type="text" value={name} onChange={e => setName(e.target.value)} required/>
+        <input placeholder="Напиши имя в родительном падеже..." id="name" type="text" value={name} onChange={e => setName(e.target.value)} required/>
       </label>
       <label>
         <span>Сообщение:</span>  <br />

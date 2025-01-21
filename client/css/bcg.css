@@ -29,14 +29,12 @@ body {
     animation: fall linear infinite; 
 }
 
-/* Определяем анимацию для снежинок */
 @keyframes fall {
     to {
         transform: translateY(100vh); 
     }
 }
 
-/* Настроим псевдоэлементы для разных размеров и скоростей снежинок */
 .snowflake:nth-child(1) {
     left: 10%;
     animation-duration: 10s;

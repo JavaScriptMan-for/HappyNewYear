@@ -1,7 +1,43 @@
-import React, { FC, useEffect } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 React.version;
+
+interface WindowSize {
+    width: number;
+    height: number;
+}
+
 const Snow: FC = () => {
+    const [size, setSize] = useState<number>(Math.random() * 17 + 8)
+    const [duration, setDuration] = useState<number>(Math.random() * 15 + 8)
+    const [windowSize, setWindowSize] = useState<WindowSize>({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    
+      useEffect(() => {
+        const handleResize = () => {
+          setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+          });
+        };
+    
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+
+      useEffect(()=> {
+        if(windowSize.width <= 680) {
+            setSize(Math.random() * 10 + 5);
+            setDuration(Math.random() * 20 + 8)
+        }
+        
+      }, [windowSize])
+
     useEffect(() => {
         const snowContainer: HTMLDivElement | null = document.querySelector('.snow-container');
         const numSnowflakes: number = 80; 
@@ -11,7 +47,7 @@ const Snow: FC = () => {
             `/img/snow3.png`
         ];
         if (snowContainer) {
-            for (let i = 0; i < numSnowflakes; i++) {
+            for (let i: number = 0; i < numSnowflakes; i++) {
                 const snowflake = document.createElement('div');
                 snowflake.classList.add('snowflake');
                 snowflake.style.left = `${Math.random() * 100}%`;
@@ -27,11 +63,10 @@ const Snow: FC = () => {
                 snowflake.style.animationDelay = `${delay}s`
 
                 // Задаем размер
-                const size = Math.random() * 17 + 8; 
                 snowflake.style.width = `${size}px`
                 snowflake.style.height = `${size}px`
 
-                const duration = Math.random() * 15 + 8;
+                //Задержка
                 snowflake.style.animationDuration = `${duration}s`
             }
         }

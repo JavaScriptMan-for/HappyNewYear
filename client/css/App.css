@@ -148,3 +148,154 @@ textarea::placeholder {
     font-size: 20px;
     color: #aaa;
 }
+#menu {
+    width: 32px;
+    cursor: pointer;
+    margin-left: 40px;
+}
+dialog {
+    border: none; 
+     background-color: #fff; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); 
+    padding: 20px;
+    border-radius: 8px; 
+    position: fixed;
+    outline: none;
+    width: 190px;
+    height: 160px;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+}
+dialog h1 {
+    margin-bottom: 20px;
+    color: black;
+    font-size: 15px;
+    text-align: center;
+}
+#close {
+    color: red;
+}
+#center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 800px) {
+    a {
+        font-size: 15px;
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width: 790px) {
+    input {
+        width: 300px;
+    }
+    #name {
+        width: 250px;
+    }
+     textarea {
+        width: 350px;
+    }
+    button {
+        width: 400px;
+    }
+    h1 {
+        font-size: 25px;
+    }
+}
+@media screen and (max-width: 600px) {
+    a {
+        font-size: 13px;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 10px;
+        text-align: center;
+    }
+    label * {
+        margin-left: 10px;
+    }
+    #email {
+        width: 250px;
+    }
+    #name {
+        width: 200px;
+    }
+    textarea {
+        width: 300px;
+        margin-left: 5px;
+    }
+    button {
+        width: 350px;
+        margin-left: 5px;
+    }
+    a {
+        font-size: 11px;
+    }
+   a:first-child {
+    margin-left: 20px;
+   }
+   label {
+    font-size: 15px;
+   }
+}
+@media (max-width: 416px) {
+    a {
+        font-size: 10px;
+    }
+    h1 {
+        font-size: 5px;
+    }
+}
+@media (max-width: 366px) {
+   textarea {
+    width: 200px;
+   }
+   button {
+    width: 250px;
+   }
+   dialog {
+    margin-top: 70%;
+   }
+}
+@media screen and (max-width: 300px) {
+    form {
+        margin-left: 13px;
+    }
+}
+@media (max-width: 240px) {
+    textarea {
+        width: 150px;
+    }
+    #email {
+        width: 140px;
+    }
+    #name {
+        width: 130px;
+    }
+    button {
+        width: 200px;
+    }
+    dialog {
+        margin-top: 90%;
+    }
+}
+@media screen and (max-width: 220px) {
+    form {
+        margin-left: 1px;
+    }
+    dialog {
+        width: 150px;
+    }
+}
+@media (max-width: 200px) {
+    body {
+        overflow: scroll;
+    }
+}
+@media screen and (max-width: 180px) {
+}
