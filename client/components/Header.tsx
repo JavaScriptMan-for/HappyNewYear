@@ -52,25 +52,29 @@ const Header: FC<HeaderProps> = ({ children }) => {
         switch (location.pathname) {
             case '/':
                 document.body.style.cssText = `background-image: url(/img/happy.png)`;
+                document.title = "До нового года...";
                 break;
             case '/send-gift':
                 document.body.style.cssText = `background-image: url(/img/background.jpg)`;
+                document.title = "Отправить поздравление";
                 break;
             case '/send-to-SantaClaus':
                 document.body.style.cssText = `background-image: url(/img/back.jpg)`;
+                document.title = "Отправить письмо Деду Морозу";
                 break;
             default:
                 document.body.style.cssText = `background-image: url(/img/happy.png)`;
+                document.title = "До нового года...";
         }
         if(windowSize.width > 400) {
             setOpen(false)
         }
         if(location.pathname == '/') {
-            if(windowSize.width < 600) {
+            if(windowSize.width < 700) {
                 document.body.style.cssText = `background-image: url(/img/happy_2.png)`;
                 document.body.style.backgroundSize = 'auto'
             }
-            if(windowSize.width >= 600) {
+            if(windowSize.width >= 700) {
                 document.body.style.cssText = `background-image: url(/img/happy.png)`;
                 document.body.style.backgroundSize = 'cover'
             }
