@@ -1,7 +1,9 @@
 import "../css/App.css";
 import { FC, ReactNode, useEffect, useState, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
-import menu from '/img/menu.png';
+//@ts-ignore
+ import menu from "/img/menu.png"
+
 
 interface WindowSize {
     width: number;
@@ -46,6 +48,7 @@ const Header: FC<HeaderProps> = ({ children }) => {
     }, [location.pathname]);
 
     useEffect(() => {
+
         switch (location.pathname) {
             case '/':
                 document.body.style.cssText = `background-image: url(/img/happy.png)`;
@@ -59,7 +62,20 @@ const Header: FC<HeaderProps> = ({ children }) => {
             default:
                 document.body.style.cssText = `background-image: url(/img/happy.png)`;
         }
-    }, [location]);
+        if(windowSize.width > 400) {
+            setOpen(false)
+        }
+        if(location.pathname == '/') {
+            if(windowSize.width < 600) {
+                document.body.style.cssText = `background-image: url(/img/happy_2.png)`;
+                document.body.style.backgroundSize = 'auto'
+            }
+            if(windowSize.width >= 600) {
+                document.body.style.cssText = `background-image: url(/img/happy.png)`;
+                document.body.style.backgroundSize = 'cover'
+            }
+        }
+    }, [location, windowSize]);
 
     return (
         <>

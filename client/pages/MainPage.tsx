@@ -1,4 +1,4 @@
-import  {FC} from "react"
+import {FC} from "react"
 import Send from '../components/Send';
 import Header from "../components/Header"
 import Snow from "../components/Snow"

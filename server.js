@@ -46,34 +46,12 @@ app.post('/api/send/', async (req, res) => {
     to: to,
     subject: `Поздравление с Новым годом для ${name.charAt(0).toUpperCase() + name.slice(1)}`,
     html: `
-   <style>
-    h2 {
-      font-weight: bold;
-      font-size: 50px;
-      color: rgb(59, 57, 57);
-    }
-      p {
-        font-size: 30px;
-        color: yellow;
-      }
-    h2, p {
-        font-family: Verdana, sans-serif;
-        text-align: center;
-    }
-    body {
-      min-height: 600px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-     background-color: blue;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  </style>
-  <body style="background-color: red">
-      <p>Для ${name.charAt(0).toUpperCase() + name.slice(1)}</p>
-      <h2>${message}</h2>
+
+  <body
+   style="background-image: url('https://img.goodfon.ru/original/2560x1600/2/41/kolokolchiki-elochnye-igrushki.jpg'); min-height: 600px; display: flex; justify-content: center; align-items: center; background-size: cover; background-repeat: no-repeat; position: absolute" 
+    >
+      <p style="font-size: 30px; color: yellow">Для ${name.charAt(0).toUpperCase() + name.slice(1)}</p>
+      <h2 style="font-family: Verdana, sans-serif; text-align: center; font-size: 50px; color: rgb(59, 57, 57); font-weight: bold">${message}</h2>
   </body>
     `,
     date: new Date().toUTCString(),
