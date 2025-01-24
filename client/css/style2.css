@@ -26,7 +26,7 @@ input {
         font-size: 40px;
     }
     .number {
-        margin-right: 10px;
+        margin-right: 17px;
     }
 }
 @media screen and (max-width: 750px) {
