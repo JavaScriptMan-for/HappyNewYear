@@ -28,6 +28,9 @@ input {
     .number {
         margin-right: 17px;
     }
+    .nameDate {
+        margin-right: 15px;
+    }
 }
 @media screen and (max-width: 750px) {
     #timer {
