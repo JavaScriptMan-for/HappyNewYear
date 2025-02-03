@@ -41,6 +41,11 @@ input {
     box-sizing: border-box;
     outline: none;
 }
+.validation-errors {
+    color: red;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 #email {
     width: 400px;
 }
@@ -80,7 +85,13 @@ button {
     position: relative;
     overflow: hidden;
 }
-
+button[disabled] {
+    background-color: gray;
+    cursor: not-allowed;
+}
+button[disabled]:hover {
+    background-color: gray;
+}
     
     button:active {
       transform: translateY(0px);
@@ -177,6 +188,7 @@ dialog h1 {
 #close {
     color: red;
 }
+
 #center {
     display: flex;
     justify-content: center;

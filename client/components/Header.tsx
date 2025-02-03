@@ -1,9 +1,10 @@
 import "../css/App.css";
-import { FC, ReactNode, useEffect, useState, useMemo } from "react";
+import React, { FC, ReactNode, useEffect, useState, useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 //@ts-ignore
  import menu from "/img/menu.png"
 
+React.version
 
 interface WindowSize {
     width: number;

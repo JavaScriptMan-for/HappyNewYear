@@ -1,26 +1,36 @@
 import axios from "axios";
 import React from "react";
-import { FC, FormEvent, useState } from "react"
-
+import { FC, useState } from "react"
+import {useForm} from "react-hook-form"
 
 React.version
 
+interface Data {
+    name: string;
+    message: string
+}
+
 const SendSantaClaus:FC = ()=> {
-    const [name, setName] = useState<string>('');
-    const [message, setMessage] = useState<string>('')
+    const {handleSubmit, register, formState: {
+        isValid,
+        errors
+    },
+    reset
+} = useForm<Data>({
+    mode: "onBlur"
+});
+
     const [status, setStatus] = useState<string>('');
     const [ok, setOk] = useState<number>(0)
 
-    const handleSubmit = async (e:FormEvent)=> {
-        e.preventDefault();
+    const onSubmit = async (data: Data)=> {
         setOk(0);
         setStatus('Отправка...');
         try {
-            await axios.post('https://happynewyear-1.onrender.com/api/to-santa/', {name, message});
+            await axios.post('https://happynewyear-1.onrender.com/api/to-santa/', data);
             setStatus('Письмо отправлено!');
             setOk(1);
-            setName('');
-            setMessage('')
+            reset();
         } catch (error) {
             console.error('Ошибка при отправке', error);
             setStatus("Ошибка при отправке");
@@ -29,30 +39,48 @@ const SendSantaClaus:FC = ()=> {
     }
     return (
         <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
             <label htmlFor="_name">
                 <span>Твоё имя:</span> <br />
+                {errors.name && <p className="validation-errors">{errors.name?.message}</p>}
                 <input
                  id="name"
-                 name="name"
                  type="text" 
-                 value={name}
-                 onChange={e=> setName(e.target.value)}
-                 required
+                {...register('name', 
+                    {
+                        required: "Это поле не может быть пустым",
+                        minLength: {
+                            value: 2,
+                            message: "Слишком короткое имя"
+                        },
+                        maxLength: {
+                            value: 30,
+                            message: "Слишком длинное имя"
+                        }
+                    }
+                )}
                  placeholder="Введите Ваше имя с заглавной буквы в именительном падеже..."
                  />
             </label>
             <label htmlFor="_message">
                 <span>Содержимое письма:</span> <br />
+            {errors.message && <p className="validation-errors">{errors.message?.message}</p>}
                 <textarea
-                 name="message"
-                 value={message}
-                 onChange={e=> setMessage(e.target.value)}
-                 required
+                {...register('message', {
+                    required: "Это поле не может быть пустым",
+                    minLength: {
+                        value: 6,
+                        message: "Письмо должно состоять минимум из 6 символов"
+                    },
+                    maxLength: {
+                        value: 200,
+                        message: "Дедушка Мороз не справится с таким количеством пожеланий"
+                    }
+                })}
                  placeholder="Напишите все свои пожелания..."   
                 />
             </label>
-            <button type="submit">Отправить</button>
+            <button disabled={!isValid} type="submit">Отправить</button>
             {ok === 0 && <p style={{color:"white"}}>{status}</p>}
              {ok === 1 && <p style={{color:"greenyellow"}}>{status}</p>}
             {ok === 2 && <p style={{color:"red"}}>{status}</p>}

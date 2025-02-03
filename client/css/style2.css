@@ -11,7 +11,7 @@ input {
     grid-template-columns: repeat(2, 2fr);
 }
 .number {
-    margin-right: 20px;
+    margin-right: 15px;
 }
 .nameDate {
     margin-right: 15px;
@@ -56,5 +56,10 @@ input {
     }
     #timer {
         margin-top: 30px;
+    }
+}
+@media screen and (max-width: 270px) {
+    #timer {
+        grid-template-columns: repeat(1, 2fr);
     }
 }
